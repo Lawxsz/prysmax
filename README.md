@@ -18,6 +18,7 @@
 1. You will need python, 3.10 recommended.
 2. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
 3. You must put bot-token and chat-id of your bot and your telegram chat (this is where you will receive the logs).
+![image](https://github.com/Lawxsz/prysmax/assets/116668706/3b5b2d66-d3a9-4da5-a2c1-119a2afb9eaf)
 
 ![image](https://github.com/Lawxsz/prysmax/assets/116668706/bc6ac73b-b566-4de2-a2db-273bcd055a35)
 
