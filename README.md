@@ -19,6 +19,8 @@
 - `🌙 Screenshot`
 - `🌙 Discord Tokens`
 - `🌙 +20 Browsers`
+- `🌙 Tasklist - Antivirus log`
+
 
 ## 📁 Setup
 
