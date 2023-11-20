@@ -1,21 +1,26 @@
-# Prysmax Free Stealer
+<h1 align="center">
+ https://t.me/prysmax<br>
+ Prysmax STEALER ❗️
+</h1>
+<h4 align="center">
+:construction: Project under development :construction:
 
 - This is not the source code for Prysmax Stealer Premium (Paid service with more features and FUD).
 - Prysmax is one of the few original Stealers and not copied from others, with new methods of infiltration and theft.
-- Join [Telegram Channel](https://t.me/prysmax)
-  
-## Functions
-- 🌙 Passwords
-- 🌙 Cookies
-- 🌙 CreditCards
-- 🌙 Historial
-- 🌙 Exodus Wallet
-- 🌙 Telegram Session
-- 🌙 Screenshot
-- 🌙 Discord Tokens
-- 🌙 +20 Browsers
+</h4>
 
-## Setup
+## 🛠️ Features
+- `🌙 Passwords`
+- `🌙 Cookies`
+- `🌙 CreditCards`
+- `🌙 Historial`
+- `🌙 Exodus Wallet`
+- `🌙 Telegram Session`
+- `🌙 Screenshot`
+- `🌙 Discord Tokens`
+- `🌙 +20 Browsers`
+
+## 📁 Setup
 
 1. You will need python, 3.10 recommended.
 2. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
@@ -24,7 +29,19 @@
 
 ![image](https://github.com/Lawxsz/prysmax/assets/116668706/bc6ac73b-b566-4de2-a2db-273bcd055a35)
 
-# Prysmax PREMIUM & FUD
+## <a id="changelog"></a>🌟 〢 ChangeLog
+
+```diff
+
+v1.1 ⋮ 2023-11-20
+
++ Now prysmax warns you if it finds any antivirus on the computer.
++ File Stealer - You can steal files, you can choose whether to search through common folders or the entire computer.
++ Now the processes will be saved in a .txt file and it will show how many processes there are in telegram.
++ Code optimization
+```
+
+# ✅ `Prysmax PREMIUM & FUD`
 
 - There is no need for me to describe it, but the major media have already analyzed it.
 
@@ -33,11 +50,11 @@
 
 Prysmax is an advanced data stealer, be it wallets, sessions of all kinds and full remote control of victims' computers. But what sets it apart from the rest is that Prysmax is totally undetectable to all anti virus scanners on the market, as well as to virtual signature scanners like VirusTotal. Basically it is elusive to all detection methods which is why it is so dangerous and powerful.
 
-- 🔥 Wallets
-- 🔥 Passwords, Cookies, Historial, all Browsers
-- 🔥 Telegram, Exodus, Discord, MobaXTerm, Metamask, Binance, Atom + 20 wallets
-- 🔥 Screenshot, Steam, Roblox
-- 🈴 Remote Access - RAT - Reverse Shell!
+-` 🔥 Wallets`
+-` 🔥 Passwords, Cookies, Historial, all Browsers`
+- `🔥 Telegram, Exodus, Discord, MobaXTerm, Metamask, Binance, Atom + 20 wallets`
+- `🔥 Screenshot, Steam, Roblox`
+- `🈴 Remote Access - RAT - Reverse Shell!`
 
 - 💹 Currently the license is 45€ forever, with free upgrades! [Telegram Channel Prysmax](https://t.me/prysmax)
 
