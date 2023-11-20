@@ -2,7 +2,7 @@
 
 - This is not the source code for Prysmax Stealer Premium (Paid service with more features and FUD).
 - Prysmax is one of the few original Stealers and not copied from others, with new methods of infiltration and theft.
-- (Telegram Channel)[https://t.me/prysmax]
+- Join [Telegram Channel](https://t.me/prysmax)
   
 ## Functions
 - 🌙 Passwords
