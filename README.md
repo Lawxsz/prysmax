@@ -55,7 +55,7 @@ Prysmax is an advanced data stealer, be it wallets, sessions of all kinds and fu
 - `🔥 Screenshot, Steam, Roblox`
 - `🈴 Remote Access - RAT - Reverse Shell!`
 
-- 💹 Currently the license is 45€ forever, with free upgrades! [Telegram Channel Prysmax](https://t.me/prysmax)
+- 💹 Currently the license is forever, with free upgrades! [Telegram Channel Prysmax](https://t.me/prysmax)
 
 - 🔱 Buy - Admin: Lawxsz [Telegram](https://t.me/lawxsz)
 
