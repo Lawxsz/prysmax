@@ -5,32 +5,58 @@
 <h4 align="center">
 :construction: Project under development :construction:
 
-- 📢 Prysmax is one of the few original Stealers and not copied from others, with new methods of infiltration and theft.
+- 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
+- Discord: https://discord.gg/WYwMSTyZ
 </h4>
 
-## 🛠️ Features
-- `🔑 Passwords`
-- `🍪 Cookies`
-- `💰 CreditCards`
-- `🍪 Autofill`
-- `📃 Historial`
-- `🌙 Exodus Wallet`
-- `📱 Telegram Session`
-- `📷 Screenshot`
-- `🎮 Discord Tokens`
-- `💬 +20 Browsers`
-- `📋 Tasklist - Antivirus log`
+<a id="features"></a>
+
+---
+
+### ☀️ 〢 Features
+
+#### Stealer
+>  🔑 Passwords
+>  🍪 Cookies
+>  💰 CreditCards
+>  🍪 Autofill
+>  📃 Historial
+>  🌙 Exodus Wallet
+>  📱 Telegram Session
+>  📷 Screenshot
+>  🎮 Discord Tokens
+>  💬 +20 Browsers
+>  📋 Tasklist - Antivirus log
+
+<a id="screenshot"></a>
+
+---
+
+### 📸 〢 Screenshots
+
+<img title="" src="https://i.imgur.com/pqWCPxT.png" alt="" width="539">
+
+<a id="todo"></a>
+
+---
 
 
 ## 📁 Setup
 
 1. You will need python, 3.10 recommended.
 2. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
-3. You must put bot-token and chat-id of your bot and your telegram chat (this is where you will receive the logs).
+3. You must put Webhook to receive logs 
+
+If it does not work, install microsoft visual c++ redistributable
 
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
+
+
+v1.2 ⋮ 2024-05-8
++ Telegram changed to Discord
++ Fixed some errors
 
 v1.1 ⋮ 2023-11-20
 
