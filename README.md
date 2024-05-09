@@ -1,4 +1,4 @@
-<h1 align="center">
+![image](https://github.com/Lawxsz/prysmax/assets/116668706/3c9af103-9ea5-45a5-8024-eb0091373536)<h1 align="center">
  https://t.me/prysmax<br>
  Prysmax STEALER ❗️
 </h1>
@@ -36,10 +36,13 @@
 
 <img title="" src="https://i.imgur.com/pqWCPxT.png" alt="" width="539">
 
+<img title="" src="https://i.imgur.com/lFdkWvt.png" alt="" width="539">
+
+<img title="" src="https://i.imgur.com/zFhLvgg.png" alt="" width="539">
+
+
 <a id="todo"></a>
-
 ---
-
 
 ## 📁 Setup
 
