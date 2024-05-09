@@ -1,4 +1,4 @@
-![image](https://github.com/Lawxsz/prysmax/assets/116668706/3c9af103-9ea5-45a5-8024-eb0091373536)<h1 align="center">
+<h1 align="center">
  https://t.me/prysmax<br>
  Prysmax STEALER ❗️
 </h1>
