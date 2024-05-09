@@ -36,9 +36,7 @@
 
 <img title="" src="https://i.imgur.com/pqWCPxT.png" alt="" width="539">
 
-<img title="" src="https://i.imgur.com/lFdkWvt.png" alt="" width="539">
 
-<img title="" src="https://i.imgur.com/zFhLvgg.png" alt="" width="539">
 
 
 <a id="todo"></a>
