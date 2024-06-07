@@ -19,7 +19,7 @@
 >  🔑 Passwords
 >  🍪 Cookies
 >  💰 CreditCards
->  🍪 Autofill
+>  🍪 Bookmarks
 >  📃 Historial
 >  🌙 Exodus Wallet
 >  📱 Telegram Session
@@ -55,6 +55,11 @@ If it does not work, install microsoft visual c++ redistributable
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
+
+v1.3 ⋮ 2024-06-06
++ Credential recovery fixed
++ Embeds changed
++ Added more antivirus and antidebug evasion
 
 
 v1.2 ⋮ 2024-05-8
