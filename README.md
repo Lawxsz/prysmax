@@ -6,7 +6,7 @@
 :construction: Project under development :construction:
 
 - 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
-- Discord: https://discord.gg/WYwMSTyZ
+- Discord: nop
 </h4>
 
 <a id="features"></a>
