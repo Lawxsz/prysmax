@@ -47,8 +47,9 @@
 ## 📁 Setup
 
 1. You will need python, 3.10 recommended.
-2. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
-3. You must put Webhook to receive logs 
+2. pip install tkinter
+3. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
+4. You must put Webhook to receive logs 
 
 If it does not work, install microsoft visual c++ redistributable
 
