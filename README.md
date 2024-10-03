@@ -6,7 +6,7 @@
 :construction: Project under development :construction:
 
 - 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
-- Discord: nop
+- Telegram: t.me/lawxsz
 </h4>
 
 <a id="features"></a>
@@ -31,8 +31,9 @@
 <a id="screenshot"></a>
 
 ---
-
 ### 📸 〢 Screenshots
+
+<img title="" src="https://i.imgur.com/2BesbRq.png" alt="" width="539">
 
 <img title="" src="https://i.imgur.com/pqWCPxT.png" alt="" width="539">
 
@@ -56,6 +57,15 @@ If it does not work, install microsoft visual c++ redistributable
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
+v1.4 ⋮ 2024-10-3
+
++ Telegram Logs Added
++ Fixed GoFile API
++ Fixed some Errors of Telegram Grab
++ More exceptions added to catch errors
++ Now when downloading the ZIP file with the user data it will look like Prysmax-PCNAME.zip (For better organization)
++ Improved the builder and UI
++ The builder is now translated into Spanish, Russian, Chinese and English. (Working on Logs translate too)
 
 v1.3 ⋮ 2024-06-06
 + Credential recovery fixed
