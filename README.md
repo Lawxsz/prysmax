@@ -51,9 +51,9 @@
 ## 📁 Setup
 
 1. You will need python, 3.10 recommended.
-2. start.bat to install requirements and run setup.py
-3. Execute in a console: ```python setup.py``` if not work install requirements of start.bat
-4. You must put Webhook/Bot-token to receive logs 
+2. ```start.bat``` to install requirements and automatic run ```setup.py```
+3. Execute in a console: ```python setup.py``` if not work install requirements of ```start.bat```
+4. You must put ```Webhook/Bot-token``` to receive logs 
 
 If it does not work, install microsoft visual c++ redistributable and python 3.10.6
 
