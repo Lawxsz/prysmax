@@ -33,6 +33,9 @@
 ---
 ### 📸 〢 Screenshots
 
+
+<img title="" src="https://i.imgur.com/RORwnm9.png" alt="" width="539">
+
 <img title="" src="https://i.imgur.com/2BesbRq.png" alt="" width="539">
 
 <img title="" src="https://i.imgur.com/pqWCPxT.png" alt="" width="539">
