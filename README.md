@@ -6,7 +6,7 @@
 :construction: Project under development :construction:
 
 - 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
-- Telegram: t.me/lawxsz
+- Telegram: t.me/lawxsz t.me/irisstealer
 </h4>
 
 <a id="features"></a>
@@ -65,7 +65,7 @@ v1.4 ⋮ 2024-10-3
 + More exceptions added to catch errors
 + Now when downloading the ZIP file with the user data it will look like Prysmax-PCNAME.zip (For better organization)
 + Improved the builder and UI
-+ The builder is now translated into Spanish, Russian, Chinese and English. (Working on Logs translate too)
+- The builder is now translated into Spanish, Russian, Chinese and English. (Working on Logs translate too) # Edit: im coding and improving it
 
 v1.3 ⋮ 2024-06-06
 + Credential recovery fixed
