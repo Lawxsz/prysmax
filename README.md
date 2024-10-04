@@ -51,16 +51,16 @@
 ## 📁 Setup
 
 1. You will need python, 3.10 recommended.
-2. pip install tkinter
-3. Execute in a console: ```python setup.py``` if not work install requirements of setup.py
-4. You must put Webhook to receive logs 
+2. start.bat to install requirements and run setup.py
+3. Execute in a console: ```python setup.py``` if not work install requirements of start.bat
+4. You must put Webhook/Bot-token to receive logs 
 
-If it does not work, install microsoft visual c++ redistributable
+If it does not work, install microsoft visual c++ redistributable and python 3.10.6
 
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
-v1.4 ⋮ 2024-10-3
+v1.4 ⋮ 2024-10-4
 
 + Telegram Logs Added
 + Fixed GoFile API
