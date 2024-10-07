@@ -1,0 +1,61 @@
+{
+    "languages": {
+        "English": {
+            "restart_language": "Restart Language",
+            "webhook_label": "Enter your Discord Webhook URL:",
+            "bot_token_label": "Enter your Telegram Bot Token:",
+            "chat_id_label": "Enter your Telegram Chat ID:",
+            "send_discord": "Send to Discord",
+            "send_telegram": "Send to Telegram",
+            "send_both": "Send to Both",
+            "title": "Prysmax Builder",
+            "default_bot_token": "t.me/prysmax",
+            "default_chat_id": "t.me/lawxsz",
+            "confirm_compilation": "Are you sure you want to compile your file to Executable?"
+
+        },
+        "Español": {
+            "restart_language": "Reiniciar el idioma",
+            "webhook_label": "ingresa tu webhook aca bolu:",
+            "bot_token_label": "ingresa tu bot token de telegram amiko:",
+            "chat_id_label": "ingresa tu chat id aca:",
+            "send_discord": "Mandar a Discord",
+            "send_telegram": "Mandar a Telegram",
+            "send_both": "Mandar a Ambos",
+            "title": "Prysmax Stealer - Constructor",
+            "default_bot_token": "t.me/prysmax",
+            "default_chat_id": "t.me/lawxsz",
+            "confirm_compilation": "seguro que queres compilar el archivo a ejecutable?"
+
+            
+        },
+        "Русский": {
+            "restart_language": "Перезагрузить язык",
+            "webhook_label": "Введите ваш Discord Webhook URL:",
+            "bot_token_label": "Введите ваш Telegram Bot Token:",
+            "chat_id_label": "Введите ваш Telegram Chat ID:",
+            "send_discord": "Отправить в Discord",
+            "send_telegram": "Отправить в Telegram",
+            "send_both": "Отправить в оба",
+            "title": "Строитель Prysmax",
+            "default_bot_token": "t.me/prysmax",
+            "default_chat_id": "t.me/lawxsz",
+            "confirm_compilation": "Вы уверены, что хотите скомпилировать файл в исполняемый файл?"
+
+        },
+        "中文": {
+            "restart_language": "重启语言",
+            "webhook_label": "输入您的 Discord Webhook URL：",
+            "bot_token_label": "输入您的 Telegram Bot Token：",
+            "chat_id_label": "输入您的 Telegram 聊天 ID：",
+            "send_discord": "发送到 Discord",
+            "send_telegram": "发送到 Telegram",
+            "send_both": "发送到两个",
+            "title": "Prysmax 构建器",
+            "default_bot_token": "t.me/prysmax",
+            "default_chat_id": "t.me/lawxsz",
+            "confirm_compilation": "你确定要将文件编译为可执行文件吗？"
+
+        }
+    }
+}
