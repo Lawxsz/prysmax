@@ -6,6 +6,7 @@
 :construction: Project under development :construction:
 
 - 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
+- Russian, Chinese, English, and Spanish Stealer
 - Telegram: t.me/lawxsz t.me/irisstealer
 </h4>
 
