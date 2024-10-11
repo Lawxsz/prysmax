@@ -2,7 +2,7 @@
 echo Installing required Python libraries...
 
 REM Install the required libraries
-pip install requests json base64 sqlite3 shutil uuid wmi psutil pyarmor==7.6.1 pyinstaller glob re platform Pillow discord-webhook pycryptodomex pycryptodome datetime pywin32
+pip install requests json base64 sqlite3 shutil uuid wmi psutil pyarmor==7.6.1 pyinstaller glob re platform Pillow discord-webhook pycryptodomex pycryptodome datetime pywin32 tkinter
 
 echo All libraries installed. Now running setup.py...
 
