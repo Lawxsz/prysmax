@@ -1,5 +1,5 @@
 <h1 align="center">
- https://t.me/prysmax<br>
+ https://t.me/prysmaxsoftware<br>
  Prysmax STEALER ❗️
 </h1>
 <h4 align="center">
