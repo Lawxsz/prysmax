@@ -116,5 +116,6 @@ Prysmax is an advanced data stealer, be it wallets, sessions of all kinds and fu
 
 - 🔱 Buy - Admin: Lawxsz [Telegram](https://t.me/lawxsz)
 - WEB FOR BUY AND SHOWCASE - https://prysmax.xyz
-![image](https://github.com/Lawxsz/prysmax/assets/116668706/a1707aa2-77b6-4653-9b9c-f713b274aa2a)
+![image](https://github.com/user-attachments/assets/e2445ec2-797b-4f1c-908e-8d22af8ae267)
+
 
