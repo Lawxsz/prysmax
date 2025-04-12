@@ -115,7 +115,7 @@ Prysmax is an advanced data stealer, be it wallets, sessions of all kinds and fu
 - 💹 Currently the license is forever, with free upgrades! [Telegram Channel Prysmax](https://t.me/prysmax)
 
 - 🔱 Buy - Admin: Lawxsz [Telegram](https://t.me/lawxsz)
-- WEB FOR BUY AND SHOWCASE - https://prysmax.xyz
+- WEB FOR BUY AND SHOWCASE - https://prysmax.top/showcase
 ![image](https://github.com/user-attachments/assets/e2445ec2-797b-4f1c-908e-8d22af8ae267)
 
 
