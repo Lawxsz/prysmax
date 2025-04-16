@@ -7,7 +7,7 @@
 
 - 📢 Prysmax is one of the few original Stealers, with new methods of infiltration and theft.
 - Russian, Chinese, English, and Spanish Stealer
-- Telegram: t.me/lawxsz t.me/irisstealer
+- Telegram: t.me/lawxsz t.me/prysmaxc2
 </h4>
 
 <a id="features"></a>
@@ -115,7 +115,7 @@ Prysmax is an advanced data stealer, be it wallets, sessions of all kinds and fu
 - 💹 Currently the license is forever, with free upgrades! [Telegram Channel Prysmax](https://t.me/prysmax)
 
 - 🔱 Buy - Admin: Lawxsz [Telegram](https://t.me/lawxsz)
-- WEB FOR BUY AND SHOWCASE - https://prysmax.top/showcase
+- WEB FOR BUY AND SHOWCASE - https://prysmax.fun/showcase
 ![image](https://github.com/user-attachments/assets/e2445ec2-797b-4f1c-908e-8d22af8ae267)
 
 
